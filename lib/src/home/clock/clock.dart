@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 
 class ClockView extends StatefulWidget {
@@ -11,15 +12,25 @@ class ClockView extends StatefulWidget {
 }
 
 class _ClockViewState extends State<ClockView> {
+  final player = AssetsAudioPlayer.newPlayer();
   @override
   void initState() {
+    getSatrtSate();
+    super.initState();
+  }
+
+  void getSatrtSate() async {
     Timer.periodic(
       const Duration(seconds: 1),
-      (timer) {
+      (timer) async {
+        player.open(
+          Audio("assets/tick.mp3"),
+          autoStart: true,
+          showNotification: false,
+        );
         setState(() {});
       },
     );
-    super.initState();
   }
 
   @override
@@ -50,7 +61,7 @@ class CustomClockCanvas extends CustomPainter {
     double radius = min(centerY, centerX);
     final center = Offset(centerX, centerY);
 
-    Paint fillPaint = Paint()..color = const Color(0xFF424775);
+    Paint fillPaint = Paint()..color = const Color(0xFF424775).withOpacity(0.8);
 
     Paint outLinePaint = Paint()
       ..color = const Color(0xFFEBEDFF)
@@ -114,6 +125,12 @@ class CustomClockCanvas extends CustomPainter {
     double secY = centerY +
         (y * 0.35) *
             cos(((pi * (360 - ((secondsAngle + 180) % 360)).abs()) / 180));
+    double secExtandX = centerX +
+        (x * 0.465) *
+            sin(((pi * (360 - ((secondsAngle + 180) % 360)).abs()) / 180));
+    double secExtandY = centerY +
+        (y * 0.465) *
+            cos(((pi * (360 - ((secondsAngle + 180) % 360)).abs()) / 180));
 
     canvas.drawCircle(center, radius - 25, fillPaint);
     canvas.drawCircle(center, radius - 22.5, outLinePaint);
@@ -140,6 +157,9 @@ class CustomClockCanvas extends CustomPainter {
             Offset(x, y), Offset(xExtend, yExtend), drawAllMinHourLines);
       }
     }
+
+    canvas.drawCircle(
+        Offset(secExtandX, secExtandY), 5, Paint()..color = Color(0xFFFCAC77));
   }
 
   @override
