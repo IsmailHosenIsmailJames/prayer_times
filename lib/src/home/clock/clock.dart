@@ -158,8 +158,8 @@ class CustomClockCanvas extends CustomPainter {
       }
     }
 
-    canvas.drawCircle(
-        Offset(secExtandX, secExtandY), 5, Paint()..color = Color(0xFFFCAC77));
+    canvas.drawCircle(Offset(secExtandX, secExtandY), 5,
+        Paint()..color = const Color(0xFFFCAC77));
   }
 
   @override
