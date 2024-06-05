@@ -15,8 +15,17 @@ Widget getThemeChangeIconButton([ButtonStyle? buttonStyle]) {
       int themeValue = prefBox.get("themeValue", defaultValue: 2);
       themeValue = (themeValue + 1) % 3;
       themeControllerGetx.changeTheme(listOfThemeMode[themeValue]);
+      themeControllerGetx.themeValue.value = themeValue;
       await prefBox.put("themeValue", themeValue);
     },
-    icon: const Icon(Icons.do_disturb),
+    icon: Obx(
+      () {
+        return Icon([
+          Icons.light_mode_rounded,
+          Icons.dark_mode_rounded,
+          Icons.brightness_6_rounded,
+        ][themeControllerGetx.themeValue.value]);
+      },
+    ),
   );
 }
