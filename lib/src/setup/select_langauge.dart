@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:prayer_times/src/language/controller/language_controller.dart';
 import 'package:prayer_times/src/language/translation.dart';
+import 'package:prayer_times/src/setup/location_setup/allow_location_access.dart';
 import 'package:prayer_times/src/widgets/theme_change_button.dart';
 
 class SelectLangauge extends StatefulWidget {
@@ -37,19 +38,19 @@ class _SelectLangaugeState extends State<SelectLangauge> {
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          //TODO:
+          Get.offAll(() => const AllowLocationAccess());
         },
-        label: const Row(
+        label: Row(
           children: [
             Text(
-              "NEXT",
-              style: TextStyle(
+              "Next".tr,
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
               ),
             ),
-            Gap(5),
-            Icon(
+            const Gap(5),
+            const Icon(
               Icons.arrow_forward_rounded,
             ),
           ],
