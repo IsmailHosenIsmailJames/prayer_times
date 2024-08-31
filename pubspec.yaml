@@ -1,5 +1,5 @@
 name: prayer_times
-description: Demonstrates how to use the location plugin.
+description: prayers times ffor muslims
 publish_to: none
 version: 1.2.0+2
 
@@ -48,30 +48,5 @@ flutter:
 
   assets:
     - assets/allow_location.png
-    - assets/ic_logo_color.png
     - assets/No_Internet_Connection.png
-    - assets/delivery-truck.png
-    - assets/delivery_done.png
-    - assets/cash_collection.png
-    - assets/delivery_back.png
     - assets/animations/bubnly.riv
-    - assets/icon_for_medical_shop.png
-
-
-flutter_native_splash:
-  color: "##D7D6DA"
-  image: assets/splash.png
-  color_dark: "##D7D6DA"
-  image_dark: assets/splash.png
-
-  android_12:
-    image: assets/splash.png
-    icon_background_color: "##D7D6DA"
-    image_dark: assets/splash.png
-    icon_background_color_dark: "##D7D6DA"
-
-flutter_launcher_icons:
-  android: "launcher_icon"
-  ios: false
-  image_path: "assets/logo.png"
-  min_sdk_android: 21
