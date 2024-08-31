@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 
 class ClockView extends StatefulWidget {
@@ -12,7 +11,6 @@ class ClockView extends StatefulWidget {
 }
 
 class _ClockViewState extends State<ClockView> {
-  final player = AssetsAudioPlayer.newPlayer();
   @override
   void initState() {
     getSatrtSate();
@@ -23,11 +21,11 @@ class _ClockViewState extends State<ClockView> {
     Timer.periodic(
       const Duration(seconds: 1),
       (timer) async {
-        player.open(
-          Audio("assets/tick.mp3"),
-          autoStart: true,
-          showNotification: false,
-        );
+        // player.open(
+        //   Audio("assets/tick.mp3"),
+        //   autoStart: true,
+        //   showNotification: false,
+        // );
         setState(() {});
       },
     );

@@ -31,7 +31,7 @@ class _AllowLocationAccessState extends State<AllowLocationAccess> {
                 onPressed: () {
                   showCupertinoModalPopup(
                     context: context,
-                    builder: (context) => SelectLangauge(),
+                    builder: (context) => const SelectLangauge(),
                   );
                 },
                 icon: const Icon(
