@@ -60,17 +60,21 @@ class MyApp extends StatelessWidget {
         if (languageCode == null) {
           languageCode ??= Get.locale!.languageCode;
           languageController.changeLanguage = languageCode;
-          Get.to(
+          Get.off(
             () => const SelectLangauge(),
           );
         } else {
           languageController.changeLanguage = languageCode;
-          Get.to(
+          Get.off(
             () => const AllowLocationAccess(),
           );
         }
       },
-      home: const Scaffold(),
+      home: const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      ),
     );
   }
 }
