@@ -6,7 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
-import 'package:prayer_times/src/screens/setup/select_langauge.dart';
+import 'package:prayer_times/src/screens/setup/language_setup/select_langauge.dart';
 import 'package:simple_icons/simple_icons.dart';
 
 class AllowLocationAccess extends StatefulWidget {
@@ -82,65 +82,68 @@ class _AllowLocationAccessState extends State<AllowLocationAccess> {
             ),
           ),
           const Gap(30),
-          ElevatedButton.icon(
-            onPressed: () async {
-              final serviceEnabled =
-                  await Geolocator.isLocationServiceEnabled();
+          SizedBox(
+            width: 300,
+            child: ElevatedButton.icon(
+              onPressed: () async {
+                final serviceEnabled =
+                    await Geolocator.isLocationServiceEnabled();
 
-              if (!serviceEnabled) {
-                return;
-              }
+                if (!serviceEnabled) {
+                  return;
+                }
 
-              var status = await Geolocator.checkPermission();
+                var status = await Geolocator.checkPermission();
 
-              if (status == LocationPermission.denied) {
-                status = await Geolocator.requestPermission();
-              }
-              if (status == LocationPermission.whileInUse ||
-                  status == LocationPermission.always) {
-                unawaited(
-                  Fluttertoast.showToast(
-                    msg: 'You did allow location access',
-                    toastLength: Toast.LENGTH_LONG,
-                  ),
-                );
-              } else if (status == LocationPermission.denied) {
-                unawaited(
-                  Fluttertoast.showToast(
-                    msg: 'You denied location access',
-                    toastLength: Toast.LENGTH_LONG,
-                  ),
-                );
-                setState(() {
-                  accestStatusText = 'You denied location access';
-                });
-              } else if (status == LocationPermission.deniedForever) {
-                unawaited(
-                  Fluttertoast.showToast(
-                    msg: 'You permanently denied location access',
-                    toastLength: Toast.LENGTH_LONG,
-                  ),
-                );
-                setState(() {
-                  accestStatusText = 'You permanently denied location acces';
-                });
-              } else {
-                unawaited(
-                  Fluttertoast.showToast(
-                    msg: 'Something Went Worng!',
-                    toastLength: Toast.LENGTH_LONG,
-                  ),
-                );
-                setState(() {
-                  accestStatusText = 'Something Went Worng!';
-                });
-              }
-            },
-            label: Text(
-              'Allow Background Location Access'.tr,
-            ),
-            icon: const Icon(
-              SimpleIcons.googlemaps,
+                if (status == LocationPermission.denied) {
+                  status = await Geolocator.requestPermission();
+                }
+                if (status == LocationPermission.whileInUse ||
+                    status == LocationPermission.always) {
+                  unawaited(
+                    Fluttertoast.showToast(
+                      msg: 'You did allow location access',
+                      toastLength: Toast.LENGTH_LONG,
+                    ),
+                  );
+                } else if (status == LocationPermission.denied) {
+                  unawaited(
+                    Fluttertoast.showToast(
+                      msg: 'You denied location access',
+                      toastLength: Toast.LENGTH_LONG,
+                    ),
+                  );
+                  setState(() {
+                    accestStatusText = 'You denied location access';
+                  });
+                } else if (status == LocationPermission.deniedForever) {
+                  unawaited(
+                    Fluttertoast.showToast(
+                      msg: 'You permanently denied location access',
+                      toastLength: Toast.LENGTH_LONG,
+                    ),
+                  );
+                  setState(() {
+                    accestStatusText = 'You permanently denied location acces';
+                  });
+                } else {
+                  unawaited(
+                    Fluttertoast.showToast(
+                      msg: 'Something Went Worng!',
+                      toastLength: Toast.LENGTH_LONG,
+                    ),
+                  );
+                  setState(() {
+                    accestStatusText = 'Something Went Worng!';
+                  });
+                }
+              },
+              label: Text(
+                'Allow Background Location Access'.tr,
+              ),
+              icon: const Icon(
+                SimpleIcons.googlemaps,
+              ),
             ),
           ),
           Row(
@@ -167,65 +170,68 @@ class _AllowLocationAccessState extends State<AllowLocationAccess> {
               ),
             ],
           ),
-          ElevatedButton.icon(
-            onPressed: () async {
-              final serviceEnabled =
-                  await Geolocator.isLocationServiceEnabled();
+          SizedBox(
+            width: 300,
+            child: ElevatedButton.icon(
+              onPressed: () async {
+                final serviceEnabled =
+                    await Geolocator.isLocationServiceEnabled();
 
-              if (!serviceEnabled) {
-                return;
-              }
+                if (!serviceEnabled) {
+                  return;
+                }
 
-              var status = await Geolocator.checkPermission();
+                var status = await Geolocator.checkPermission();
 
-              if (status == LocationPermission.denied) {
-                status = await Geolocator.requestPermission();
-              }
-              if (status == LocationPermission.whileInUse ||
-                  status == LocationPermission.always) {
-                unawaited(
-                  Fluttertoast.showToast(
-                    msg: 'You did allow location access',
-                    toastLength: Toast.LENGTH_LONG,
-                  ),
-                );
-              } else if (status == LocationPermission.denied) {
-                unawaited(
-                  Fluttertoast.showToast(
-                    msg: 'You denied location access',
-                    toastLength: Toast.LENGTH_LONG,
-                  ),
-                );
-                setState(() {
-                  accestStatusText = 'You denied location access';
-                });
-              } else if (status == LocationPermission.deniedForever) {
-                unawaited(
-                  Fluttertoast.showToast(
-                    msg: 'You permanently denied location access',
-                    toastLength: Toast.LENGTH_LONG,
-                  ),
-                );
-                setState(() {
-                  accestStatusText = 'You permanently denied location acces';
-                });
-              } else {
-                unawaited(
-                  Fluttertoast.showToast(
-                    msg: 'Something Went Worng!',
-                    toastLength: Toast.LENGTH_LONG,
-                  ),
-                );
-                setState(() {
-                  accestStatusText = 'Something Went Worng!';
-                });
-              }
-            },
-            label: Text(
-              'Setup Manually'.tr,
-            ),
-            icon: const Icon(
-              SimpleIcons.googlemaps,
+                if (status == LocationPermission.denied) {
+                  status = await Geolocator.requestPermission();
+                }
+                if (status == LocationPermission.whileInUse ||
+                    status == LocationPermission.always) {
+                  unawaited(
+                    Fluttertoast.showToast(
+                      msg: 'You did allow location access',
+                      toastLength: Toast.LENGTH_LONG,
+                    ),
+                  );
+                } else if (status == LocationPermission.denied) {
+                  unawaited(
+                    Fluttertoast.showToast(
+                      msg: 'You denied location access',
+                      toastLength: Toast.LENGTH_LONG,
+                    ),
+                  );
+                  setState(() {
+                    accestStatusText = 'You denied location access';
+                  });
+                } else if (status == LocationPermission.deniedForever) {
+                  unawaited(
+                    Fluttertoast.showToast(
+                      msg: 'You permanently denied location access',
+                      toastLength: Toast.LENGTH_LONG,
+                    ),
+                  );
+                  setState(() {
+                    accestStatusText = 'You permanently denied location acces';
+                  });
+                } else {
+                  unawaited(
+                    Fluttertoast.showToast(
+                      msg: 'Something Went Worng!',
+                      toastLength: Toast.LENGTH_LONG,
+                    ),
+                  );
+                  setState(() {
+                    accestStatusText = 'Something Went Worng!';
+                  });
+                }
+              },
+              label: Text(
+                'Setup Manually'.tr,
+              ),
+              icon: const Icon(
+                SimpleIcons.googlemaps,
+              ),
             ),
           ),
           const Gap(30),

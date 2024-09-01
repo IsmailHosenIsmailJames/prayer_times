@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:prayer_times/src/core/language/controller/language_controller.dart';
-import 'package:prayer_times/src/screens/setup/app_setup_page.dart';
+import 'package:prayer_times/src/screens/setup/language_setup/select_langauge.dart';
+import 'package:prayer_times/src/screens/setup/location_setup/allow_location_access.dart';
 import 'package:prayer_times/src/theme/controller/theme_controller_getx.dart';
 
 import 'src/core/language/translation.dart';
@@ -48,17 +49,28 @@ class MyApp extends StatelessWidget {
       locale: Get.deviceLocale,
       fallbackLocale: const Locale("en", "US"),
       translationsKeys: AppTranslation.translationsKeys,
-      onInit: () {
+      onInit: () async {
+        await Future.delayed(const Duration(milliseconds: 100));
         final themeControleer = Get.put(ThemeControllerGetx());
         final languageController = Get.put(LanguageController());
         final prefBox = Hive.box("pref");
         String? languageCode = prefBox.get("lan", defaultValue: null);
         final int themeValue = prefBox.get("themeValue", defaultValue: 2);
         themeControleer.changeTheme(listOfThemeMode[themeValue]);
-        languageCode ??= Get.locale!.languageCode;
-        languageController.changeLanguage = languageCode;
+        if (languageCode == null) {
+          languageCode ??= Get.locale!.languageCode;
+          languageController.changeLanguage = languageCode;
+          Get.to(
+            () => const SelectLangauge(),
+          );
+        } else {
+          languageController.changeLanguage = languageCode;
+          Get.to(
+            () => const AllowLocationAccess(),
+          );
+        }
       },
-      home: const AppSetupPage(),
+      home: const Scaffold(),
     );
   }
 }

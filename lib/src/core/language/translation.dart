@@ -61,8 +61,7 @@ Map<String, String> id = {
 Map<String, String> bn = {
   "Select a language": "একটি ভাষা নির্বাচন করুন",
   "Next": "পরবর্তী",
-  "Allow Background Location Access":
-      "পটভূমি অবস্থান অ্যাক্সেস করার অনুমতি দিন",
+  "Allow Background Location Access": "অবস্থান অ্যাক্সেস করার অনুমতি দিন",
   "We must need location data for running this app with essential features. Please allow location access, then you can go next step.":
       "আমাদের অপরিহার্য বৈশিষ্ট্য সহ এই অ্যাপটি চালানোর জন্য অবস্থান ডেটা প্রয়োজন। অনুগ্রহ করে অবস্থান অ্যাক্সেস করার অনুমতি দিন, তারপরে আপনি পরবর্তী পদক্ষেপে যেতে পারেন।",
   "Go to app settings and allow all the time location access":
