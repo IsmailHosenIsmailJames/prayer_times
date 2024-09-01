@@ -21,7 +21,7 @@
    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
    <application
-        android:label="alarm_example"
+        android:label="Prayers Time"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <service android:name="com.gdelataillade.alarm.services.NotificationOnKillService" />

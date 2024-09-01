@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(useMaterial3: true).copyWith(
+        brightness: Brightness.light,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(

@@ -4,6 +4,10 @@ import 'package:get/get.dart';
 class ThemeControllerGetx {
   RxInt themeValue = 2.obs;
   void changeTheme(ThemeMode toChange) async {
-    Get.changeThemeMode(toChange);
+    Future.delayed(const Duration(milliseconds: 100)).then(
+      (value) {
+        Get.changeThemeMode(toChange);
+      },
+    );
   }
 }
