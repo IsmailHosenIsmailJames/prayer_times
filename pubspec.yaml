@@ -53,7 +53,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/adan_fajr.mp3
+    - assets/adan-fajr.mp3
     - assets/adan.mp3
     - assets/allow_location.png
     - assets/cities.json
