@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:prayer_times/src/language/controller/language_controller.dart';
-import 'package:prayer_times/src/language/translation.dart';
-import 'package:prayer_times/src/setup/location_setup/allow_location_access.dart';
+import 'package:prayer_times/src/core/language/controller/language_controller.dart';
+import 'package:prayer_times/src/core/language/translation.dart';
+import 'package:prayer_times/src/screens/setup/location_setup/allow_location_access.dart';
 import 'package:prayer_times/src/widgets/theme_change_button.dart';
 
 class SelectLangauge extends StatefulWidget {

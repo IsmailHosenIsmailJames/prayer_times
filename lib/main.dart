@@ -1,15 +1,17 @@
+import 'package:alarm/alarm.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:prayer_times/src/language/controller/language_controller.dart';
-import 'package:prayer_times/src/setup/app_setup_page.dart';
+import 'package:prayer_times/src/core/language/controller/language_controller.dart';
+import 'package:prayer_times/src/screens/setup/app_setup_page.dart';
 import 'package:prayer_times/src/theme/controller/theme_controller_getx.dart';
 
-import 'src/language/translation.dart';
+import 'src/core/language/translation.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Alarm.init();
   Hive.init((await getApplicationDocumentsDirectory()).path);
   await Hive.openBox("pref");
   runApp(const MyApp());

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prayer_times/src/setup/select_langauge.dart';
+import 'package:prayer_times/src/screens/setup/select_langauge.dart';
 
 class AppSetupPage extends StatelessWidget {
   const AppSetupPage({super.key});

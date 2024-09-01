@@ -53,11 +53,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/mozart.mp3
-    - assets/nokia.mp3
-    - assets/one_piece.mp3
-    - assets/star_wars.mp3
-    - assets/marimba.mp3
+    - assets/adan_fajr.mp3
+    - assets/adan.mp3
     - assets/allow_location.png
+    - assets/cities.json
     - assets/No_Internet_Connection.png
-    - assets/animations/bubnly.riv
