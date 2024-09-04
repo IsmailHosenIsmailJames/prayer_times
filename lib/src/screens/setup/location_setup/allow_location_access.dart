@@ -6,7 +6,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
-import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:prayer_times/src/screens/setup/language_setup/select_langauge.dart';
 import 'package:prayer_times/src/screens/setup/location_setup/manual_setup.dart';
 import 'package:simple_icons/simple_icons.dart';
