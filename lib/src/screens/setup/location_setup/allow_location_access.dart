@@ -4,11 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:prayer_times/src/screens/setup/language_setup/select_langauge.dart';
 import 'package:prayer_times/src/screens/setup/location_setup/manual_setup.dart';
 import 'package:simple_icons/simple_icons.dart';
+
+import '../download_prayers_time/download_prayers_time.dart';
 
 class AllowLocationAccess extends StatefulWidget {
   const AllowLocationAccess({super.key});
@@ -106,6 +109,10 @@ class _AllowLocationAccessState extends State<AllowLocationAccess> {
                       msg: 'You did allow location access',
                       toastLength: Toast.LENGTH_LONG,
                     ),
+                  );
+
+                  Get.to(
+                    () => const DownloadPrayersTime(),
                   );
                 } else if (status == LocationPermission.denied) {
                   unawaited(

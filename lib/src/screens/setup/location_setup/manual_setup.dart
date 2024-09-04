@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:prayer_times/src/screens/setup/download_prayers_time/download_prayers_time.dart';
 
 class ManualSetupLocation extends StatefulWidget {
   const ManualSetupLocation({super.key});
@@ -152,12 +154,21 @@ class _ManualSetupLocationState extends State<ManualSetupLocation> {
                     ),
                     const Gap(20),
                     ElevatedButton.icon(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(
+                          () => DownloadPrayersTime(
+                            lat: double.parse(city[1]),
+                            lon: double.parse(city[2]),
+                            city: city[0],
+                            country: city[3],
+                          ),
+                        );
+                      },
                       label: const Text("  Ok  "),
                       icon: const Icon(Icons.done),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),
@@ -244,7 +255,7 @@ class _ManualSetupLocationState extends State<ManualSetupLocation> {
                               color: Colors.blue.shade200,
                             ),
                             child: const Text(
-                              "Log",
+                              "Lng",
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,

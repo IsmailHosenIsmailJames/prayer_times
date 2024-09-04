@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:alarm/alarm.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
@@ -9,6 +12,7 @@ import 'package:prayer_times/src/screens/setup/location_setup/allow_location_acc
 import 'package:prayer_times/src/theme/controller/theme_controller_getx.dart';
 
 import 'src/core/language/translation.dart';
+import 'src/screens/setup/download_prayers_time/download_prayers_time.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,6 +61,15 @@ class MyApp extends StatelessWidget {
         String? languageCode = prefBox.get("lan", defaultValue: null);
         final int themeValue = prefBox.get("themeValue", defaultValue: 2);
         themeControleer.changeTheme(listOfThemeMode[themeValue]);
+        var status = await Geolocator.checkPermission();
+
+        if (status == LocationPermission.whileInUse ||
+            status == LocationPermission.always) {
+          Get.to(
+            () => const DownloadPrayersTime(),
+          );
+        }
+
         if (languageCode == null) {
           languageCode ??= Get.locale!.languageCode;
           languageController.changeLanguage = languageCode;
