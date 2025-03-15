@@ -14,10 +14,13 @@ class _CompassViewState extends State<CompassView> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Center(
-        child: SizedBox(
-          width: size.width,
-          height: size.height,
-          child: SvgPicture.asset('assets/compass.svg'),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+            width: size.width - 24,
+            height: size.width - 24,
+            child: SvgPicture.asset('assets/compass.svg', fit: BoxFit.fitWidth),
+          ),
         ),
       ),
     );
