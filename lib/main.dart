@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prayer_times/src/views/clock_views.dart';
 import 'package:prayer_times/src/views/compass/compass_view.dart';
 
 void main() {
@@ -10,6 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: CompassView());
+    return MaterialApp(home: ClockViews());
   }
 }
